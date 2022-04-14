@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="featured-title">
+                <h5>Upload de Vídeo</h5>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="details">
+                        <form [ngFormOptions]="{ updateOn: 'change' }" id="contact-form" #form="ngForm" (ngSubmit)="uploadVideo()">
+                            <div class="mb-3">
+                                <label for="title" class="form-label">Título do vídeo <span>*</span></label>
+                                <input required [(ngModel)]="entity.title" type="text" placeholder="Adicione um título que descreva seu vídeo" class="form-control" id="title" name="title" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Descrição do vídeo</label>
+                                <textarea required [(ngModel)]="entity.description" placeholder="Fale sobre seu vídeo para os espectadores" class="form-control" id="description" name="description"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="category" class="form-label">Categoria do vídeo <span>*</span></label>
+                                <select id="category" name="category" [(ngModel)]="entity.category" required class="form-select">
+                                  <option selected disabled>Escolha uma opção</option>
+                                  <option *ngFor="let category of categories" value="{{category.id}}">{{category.snippet.title}}</option>
+                                </select>
+                            </div>
+
+                            <button class="float: right;" type="submit" class="btn btn-primary">Enviar vídeo</button>
+
+                            <div *ngIf="videoUrl"><a target="_blank" href="{{ videoUrl }}">Abrir o vídeo em uma nova página</a></div>
+
+                        </form>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="upload-area text-center">
+                        <h4 class="mb-3">Selecionar arquivo de vídeo</h4>
+                        <div class="upload-image mb-3">
+                            <label id="upload-file-label" for="upload-file-video" class="pv-upload-file-input-focusable cursor-pointer"></label>
+                            <img (click)="openSearchFile()" src="/assets/images/upload.png" alt="Upload Video" />
+                            <input class="hidden" enctype="multipart/form-data" name="video" #file id="upload-file-video" name="file" accept="video/*" type="file" (change)="selectedVideo(file.files)" />
+                        </div>
+                        <h6 *ngIf="videoSource && videoSource.name">{{ videoSource.name }} foi selecionado</h6>
+                        <h5>Seu vídeo passará por uma análise de conteúdo antes de ser publicado, veja as políticas da plataforma clicando <a target="_blank" href="https://www.youtube.com/static?gl=BR&template=terms&hl=pt">aqui</a>.</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

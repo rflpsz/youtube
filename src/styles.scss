@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+/* Importing Bootstrap SCSS file. */
+
+@import "~bootstrap/scss/bootstrap";
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.card {
+    box-shadow: rgb(0 0 0 / 20%) 0px 2px 6px;
+}
+
+picture {
+    display: flex;
+    justify-content: center;
+}
+
+picture>img {
+    width: 150px !important;
+}
+
+
+/* Importing Bootstrap SCSS file. */
+
+@import "~bootstrap/scss/bootstrap";

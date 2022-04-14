@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="featured-title">
+                <h5>Vídeos do canal</h5>
+            </div>
+
+            <div *ngIf="videos && !error; else errorBox" class="videos">
+
+                <div *ngFor="let video of videos" class="card mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-3">
+                            <a [routerLink]="['/video/'+video.id.videoId]">
+                                <img src="{{ video.snippet.thumbnails.medium.url }}" class="img-fluid rounded-start" alt="{{ video.snippet.title }}" />
+                            </a>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="mx-4">
+                                <p class="card-title mt-2"><a href="/video/{{ video.id.videoId }}">{{ video.snippet.title }}</a></p>
+                                <p class="card-text mt-2">
+                                    <a href="/channel/{{ video.snippet.channelId }}">
+                                  {{ video.snippet.channelTitle }}
+                                </a>
+                                </p>
+                                <p class="mt-2">{{ global.trimString(video.snippet.description, 172) }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <ng-template #errorBox>
+                <h5 class="text-center">Você precisa logar para acessar o seu canal.</h5>
+            </ng-template>
+        </div>
+    </div>
+</div>

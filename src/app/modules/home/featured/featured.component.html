@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="featured-title">
+        <h5>Featured</h5>
+    </div>
+    <div *ngIf="featured" class="col-7">
+        <div class="card">
+
+            <a href="/video/{{ featured.id }}">
+                <img class="card-img-top" src="{{ featured.snippet.thumbnails.default.url }}" alt="{{ featured.snippet.title }}" />
+            </a>
+            <div class="card-body">
+                <h5 class="card-title"><a href="/video/{{ featured.id }}">{{ global.trimString(featured.snippet.title, 54) }}</a></h5>
+                <p class="card-text"><a href="/channel/{{ featured.snippet.channelId }}">{{ featured.snippet.channelTitle }}</a></p>
+                <span>{{ featured.statistics.viewCount | number }} visualizações • {{ featured.snippet.publishedAt }}</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-5">
+        <app-featured-other-videos [otherVideos]="otherVideos"></app-featured-other-videos>
+    </div>
+</div>

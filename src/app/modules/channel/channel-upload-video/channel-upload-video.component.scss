@@ -1,0 +1,31 @@
+.featured-title>h5 {
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 32px;
+    letter-spacing: inherit;
+    border-bottom: 1px solid #ff0000;
+    padding-bottom: 0.3em;
+    margin-bottom: 1em;
+}
+
+.upload-image {
+    text-align: center;
+    background-color: #999;
+    padding: 20px;
+    width: 200px;
+    margin: 0 auto;
+    border-radius: 25%;
+}
+
+.upload-image:hover {
+    background-color: #FF0000;
+    cursor: pointer;
+}
+
+label.form-label>span {
+    color: red;
+}
+
+.hidden {
+    display: none;
+}

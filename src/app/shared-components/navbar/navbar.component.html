@@ -1,0 +1,56 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 col-xl-2 col-xxl-2 text-center">
+                <a class="navbar-brand" [routerLink]="['/']">
+                    <app-logo class="logo-size-46_37px" src="/assets/images/logo.png"></app-logo>
+                </a>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 col-xl-8 col-xxl-8">
+                <app-search-video class="w-100"></app-search-video>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-2 d-lg-none d-xl-none d-xxl-none text-center">
+                <button class="navbar-toggler d-xs-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop">
+                  <span class="navbar-toggler-icon d-xs-none"></span>
+                </button>
+            </div>
+            <div class="col-lg-3 col-xl-2 col-xxl-2">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul *ngIf="!isLogged" class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active login" aria-current="page" (click)="signInWithGoogle()" style="font-size: 12px; padding: 0px !important; margin: 0px !important;">
+                              Olá, faça seu <span style="font-weight: bold;">login</span> <br> ou <span style="font-weight: bold;">cadastre-se</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul *ngIf="user && isLogged" class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item mx-2">
+                            <img src="{{ user.photoUrl }}" alt="{{ user.name }}" />
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#" style="font-size: 12px; padding: 0px !important; margin: 0px !important;">
+                                <p>Seja bem-vindo,</p>
+                                <span style="font-weight: bold;">{{ user.name }}, <a (click)="signOut()">sair?</a></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-7 col-xl-8 col-xxl-9">
+            <app-nav-item [navItems]="mainMenu"></app-nav-item>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5 col-xl-4 col-xxl-3">
+            <app-nav-item [navItems]="rightMenu"></app-nav-item>
+        </div>
+    </div>
+</div>
+<hr class="mt-0">
+
+<div class="row">
+    <app-offset-menu></app-offset-menu>
+</div>

@@ -1,0 +1,5 @@
+<input [(ngModel)]="search" typeaheadOptionField="snippet.title" (typeaheadOnSelect)="onSelect($event)" [typeaheadMinLength]="0" [typeahead]="suggestions$" [typeaheadAsync]="true" class="form-control" [isAnimated]="true" [typeaheadWaitMs]="500" placeholder="Buscar">
+
+<div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+    {{ errorMessage }}
+</div>

@@ -1,0 +1,33 @@
+.featured-title>h5 {
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 32px;
+    letter-spacing: inherit;
+    border-bottom: 1px solid #ff0000;
+    padding-bottom: 0.3em;
+    margin-bottom: 1em;
+}
+
+.card-title {
+    margin-bottom: 0px;
+    font-weight: 500;
+}
+
+.card-text {
+    font-size: 14px;
+    margin-bottom: 0px;
+}
+
+.card-text>a {
+    text-decoration: none;
+    color: black;
+}
+
+.card-text>a:hover {
+    color: red;
+}
+
+.card-title>a {
+    text-decoration: none;
+    color: black;
+}
